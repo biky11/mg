@@ -3,3 +3,6 @@ https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.13
 
 setup
   https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.2.1-signed.msi
+
+shell
+https://downloads.mongodb.com/compass/mongosh-2.5.8-win32-x64.zip
