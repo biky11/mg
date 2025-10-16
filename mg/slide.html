@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		#slideBox {
+      width: 300px;
+      height: 150px;
+      background-color: yellow;
+      color: white;
+      text-align: center;
+      line-height: 150px;
+      font-size: 20px;
+      margin: 20px 0;
+   		 }
+	</style>
+</head>
+<body>
+<script src="jquery/jquery.js"></script>
+<h2>Slide Box Example</h2>
+<div id="slideBox"></div>
+
+<button id="slideUpBtn">Slide Up</button>
+<button id="slideDownBtn">Slide Down</button>
+<button id="slideToggleBtn">Slide Toggle</button>
+
+<script>
+  // Slide Up
+  $("#slideUpBtn").on("click", function(){
+    $("#slideBox").slideUp(1000); // slides up in 1 second
+  });
+
+  // Slide Down
+  $("#slideDownBtn").on("click", function(){
+    $("#slideBox").slideDown(1000); // slides down in 1 second
+  });
+
+  // Slide Toggle
+  $("#slideToggleBtn").on("click", function(){
+    $("#slideBox").slideToggle(1000); // toggles slide up/down
+  });
+</script>
+</body>
+</html>

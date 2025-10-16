@@ -1,0 +1,45 @@
+//addToSet
+
+db.ssd.aggregate([
+  { $unwind: "$maths" },
+  { 
+    $group: { 
+      _id: "$_id",                // group by each student’s _id
+      all_mark: { $addToSet: "$maths" } 
+    }
+  }
+])
+
+
+
+//Push
+db.ssd.aggregate([
+  { $unwind: "$maths" },
+  { 
+    $group: { 
+      _id: null,               // single group for all students
+      all_mark: { $push: "$maths" }
+    }
+  }
+])
+
+
+//avg , min,max,sum
+
+db.ssd.aggrate([{$unwind:"$maths"},{$group:{_id:"$_id",sumtol:{$sum:"$maths"}}}}]
+db.ssd.aggrate([{$unwind:"$maths"},{$group:{_id:"$_id",sumtol:{$avg:"$maths"}}}}]
+db.ssd.aggrate([{$unwind:"$maths"},{$group:{_id:"$_id",sumtol:{$min:"$maths"}}}}]
+db.ssd.aggrate([{$unwind:"$maths"},{$group:{_id:"$_id",sumtol:{$max:"$maths"}}}}]
+
+//first and last
+db.ssd.aggregate([
+  { $unwind: "$maths" },
+  {
+    $group: {
+      _id: "$_id",
+      name: { $first: "$name" },
+      firstMark: { $first: "$maths" },
+      lastMark: { $last: "$maths" }
+    }
+  }
+])

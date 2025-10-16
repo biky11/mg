@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fade Example</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #3498db;
+			margin: 20px auto;
+			border-radius: 10px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+<div class="box"></div>
+
+<div><h1>This is FadeIn and FadeOut</h1></div>
+
+<button id="btn1">FadeOut</button>
+<button id="btn2">FadeIn</button>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#btn1').click(function(){
+			$(".box").fadeOut();
+		});
+
+		$('#btn2').dblclick(function(){
+			$(".box").fadeIn();
+		});
+	});
+</script>
+</body>
+</html>

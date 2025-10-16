@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Set Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="test1">First paragraph.</p>
+<p id="test2">Second paragraph.</p>
+<p>Input Box: <input type="text" id="test3" value="Text"></p>
+
+<button id="btn1">Set Text</button>
+<button id="btn2">Set HTML</button>
+<button id="btn3">Set Value</button>
+
+<script>
+$(document).ready(function(){
+
+  // Set text
+  $("#btn1").click(function(){
+    $("#test1").text("Text Changed!");
+  });
+
+  // Set HTML
+  $("#btn2").click(function(){
+    $("#test2").html("<b>HTML Applied on the Text</b>");
+  });
+
+  // Set Input Value
+  $("#btn3").click(function(){
+    $("#test3").val("Input Value Changed");
+  });
+});
+</script>
+</body>
+</html>
+

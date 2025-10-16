@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    p {
+      background: lightblue;
+      padding: 10px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<p>Welcome! SRM College,Kudal.</p>
+<button id="btn2">Start Chaining</button>
+
+<script>
+$(document).ready(function(){
+  $("#btn2").click(function(){
+    $("p").css("color", "red")     // change text color
+         .slideUp(1000)            // hide
+         .slideDown(1000);         // show
+  });
+});
+</script>
+
+</body>
+</html>

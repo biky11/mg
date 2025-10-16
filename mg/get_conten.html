@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="para">Hello <b>World</b>!</p>
+<input type="text" id="name" value="Soham">
+<button id="btn2">Get Contents</button>
+
+<script>
+$(document).ready(function(){
+  $("#btn2").click(function(){
+    alert("Text: " + $("#para").text());   // Get only text
+    alert("HTML: " + $("#para").html());   // Get HTML with tags
+    alert("Value: " + $("#name").val());   // Get input value
+  });
+});
+</script>
+
+</body>
+</html>

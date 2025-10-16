@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    #msg { background: lightgreen; padding: 10px; width: 250px; }
+  </style>
+</head>
+<body>
+
+<p id="msg">This message will hide first.</p>
+<button id="btn1">Hide with Callback</button>
+
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#msg").slideUp("slow", function(){
+      alert("Paragraph is now hidden!");  // callback
+    });
+  });
+});
+</script>
+
+</body>
+</html>
+

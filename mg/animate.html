@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- jQuery and jQuery UI -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: orange;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+<button id="btn">Animate</button>
+<div id="box"></div>
+
+<script>
+$(document).ready(function(){
+  $("#btn").click(function(){
+    $("#box").animate({
+      left: '150px',
+      backgroundColor: "red",// Change to blue
+      opacity: 0.3  
+    }, 1000);
+  });
+});
+</script>
+
+</body>
+</html>

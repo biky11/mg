@@ -1,0 +1,13 @@
+db.rd.find({title:{$regex:"es"}},{title:1,_id:0})
+db.rd.find({title:{$regex:"t$"}},{title:1,_id:0})
+db.rd.find({title:{$regex:"^B"}},{title:1,_id:0})
+
+db.rd.find({rating:{$eq:'8'}},{title:1,_id:0})
+db.rd.find({rating:{$gt:'5'}},{title:1,_id:0})
+db.rd.find({type:{$ne:"Burgers"}},{title:1,_id:0})
+
+db.rd.find({},{title:1,_id:0})
+db.rd.find({},{title:1,_id:0}).limit(2)
+
+db.rd.find({type:"Burgers"},{title:1,_id:0})
+db.rd.find({$or:[{type:"Sandwiches"},{type:"Fast Food"}]},{title:1,_id:0})
