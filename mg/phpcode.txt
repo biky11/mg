@@ -1,0 +1,82 @@
+<?php
+// Load MongoDB library (installed via Composer)
+require 'vendor/autoload.php';
+
+use MongoDB\Client;
+
+// Connect to MongoDB
+$client = new Client("mongodb://localhost:27017");
+
+// Select database and collection
+$db = $client->mydatabase;
+$collection = $db->college_stud;
+
+// ----------------------
+// INSERT DOCUMENTS
+// ----------------------
+$collection->insertOne([
+    'name' => 'Alice',
+    'age' => 21,
+    'course' => 'CS'
+]);
+
+$collection->insertMany([
+    ['name' => 'Bob', 'age' => 22, 'course' => 'IT'],
+    ['name' => 'Charlie', 'age' => 23, 'course' => 'Physics']
+]);
+
+// ----------------------
+// DISPLAY ALL STUDENTS
+// ----------------------
+echo "<h2>Students (Before Update/Delete):</h2>";
+echo "<table border='1' cellpadding='6' cellspacing='0'>
+        <tr style='background-color:#eee;'>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>";
+
+foreach ($collection->find() as $doc) {
+    echo "<tr>
+            <td>{$doc['name']}</td>
+            <td>{$doc['age']}</td>
+            <td>{$doc['course']}</td>
+          </tr>";
+}
+
+echo "</table><br>";
+
+// ----------------------
+// UPDATE OPERATION
+// ----------------------
+$collection->updateOne(
+    ['name' => 'Bob'],          // filter
+    ['$set' => ['age' => 25]]   // update
+);
+
+// ----------------------
+// DELETE OPERATION
+// ----------------------
+$collection->deleteOne(['name' => 'Charlie']);
+
+// ----------------------
+// DISPLAY UPDATED DATA
+// ----------------------
+echo "<h2>Students (After Update/Delete):</h2>";
+echo "<table border='1' cellpadding='6' cellspacing='0'>
+        <tr style='background-color:#eee;'>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>";
+
+foreach ($collection->find() as $doc) {
+    echo "<tr>
+            <td>{$doc['name']}</td>
+            <td>{$doc['age']}</td>
+            <td>{$doc['course']}</td>
+          </tr>";
+}
+
+echo "</table>";
+?>
