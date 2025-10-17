@@ -1,0 +1,51 @@
+for python with mongodb:
+1]run this on cmd: pip install pymongo
+2]create file on idle and run this code:
+from pymongo import MongoClient
+
+# --- 1. CONNECT TO MONGODB ---
+# For local MongoDB:
+client = MongoClient("mongodb://localhost:27017/")
+
+# OR for MongoDB Atlas (cloud):
+# client = MongoClient("mongodb+srv://<username>:<password>@cluster0.mongodb.net/")
+
+# --- 2. CREATE/ACCESS DATABASE AND COLLECTION ---
+db = client["mydatabase"]          # Database name
+collection = db["users"]           # Collection name
+
+# --- 3. INSERT DATA ---
+# Insert one document
+collection.insert_one({"name": "Alice", "age": 25, "city": "New York"})
+
+# Insert multiple documents
+users = [
+    {"name": "Bob", "age": 30, "city": "Los Angeles"},
+    {"name": "Charlie", "age": 28, "city": "Chicago"},
+]
+collection.insert_many(users)
+
+# --- 4. READ DATA ---
+print("All users:")
+for user in collection.find():
+    print(user)
+
+# Find one document
+user = collection.find_one({"name": "Alice"})
+print("\nFound user:", user)
+
+# --- 5. UPDATE DATA ---
+collection.update_one({"name": "Alice"}, {"$set": {"age": 26}})
+print("\nAfter update:", collection.find_one({"name": "Alice"}))
+
+# --- 6. DELETE DATA ---
+collection.delete_one({"name": "Bob"})
+print("\nAfter deleting Bob:")
+for user in collection.find():
+    print(user)
+
+# --- 7. CLOSE CONNECTION ---
+client.close()
+
+------------------------------
+3]if this code doesn't run on idle then open cmd on where the python code is saved and at that location on cmd run : python file_name.py
