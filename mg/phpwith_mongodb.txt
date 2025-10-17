@@ -1,0 +1,19 @@
+1]go to chrome and search pecl php mongodb
+https://pecl.php.net/package/mongodb/2.1.0/windows
+https://downloads.php.net/~windows/pecl/releases/mongodb/2.1.0/php_mongodb-2.1.0-8.2-ts-vs16-x64.zip
+2]extract this file and 
+php_mongodb.dll into 
+C:\xampp\php\ext\
+3]Enable the extension
+Open: C:\xampp\php\php.ini
+Add this line at the end:
+extension=php_mongodb.dll
+4]Install Composer and paste at
+C:\xampp\htdocs\mymongodb
+Run on cmd:
+composer require mongodb/mongodb
+5]Create and Run Your PHP Code at 
+C:\xampp\htdocs\mymongodb and create mongodb.php
+
+Test in Browser:
+localhost/mymongodb/
